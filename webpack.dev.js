@@ -1,5 +1,5 @@
-const webpack = require("webpack");
-const path = require("path");
+// const webpack = require('webpack')
+const path = require('path')
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -16,32 +16,32 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    storage: "./src/index.js"
+    storage: './src/index.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, "src")],
-        loader: "babel-loader",
+        include: [path.resolve(__dirname, 'src')],
+        loader: 'babel-loader',
         options: {
-          presets: ["env"],
-          plugins: ["syntax-dynamic-import"]
+          presets: ['env'],
+          plugins: ['syntax-dynamic-import']
         }
       }
     ]
   },
-  target: "web",
+  target: 'web',
   output: {
-    library: "storage",
-    libraryTarget: "umd",
-    filename: "[name].js"
+    library: 'storage',
+    libraryTarget: 'umd',
+    filename: '[name].js'
   },
-  mode: "development",
+  mode: 'development',
 
   optimization: {
     splitChunks: {
-      chunks: "async",
+      chunks: 'async',
       minSize: 30000,
       minChunks: 1,
       name: false,
@@ -54,4 +54,4 @@ module.exports = {
       }
     }
   }
-};
+}
